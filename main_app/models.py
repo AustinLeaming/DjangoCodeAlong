@@ -7,7 +7,10 @@ class Guitar(models.Model):
     color = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     age = models.IntegerField()
-    
+
+
+    def __str__(self):
+        return self.name
     # class Guitar:
     #     def __init__(self, name, make, color, type, age):
     #     self.name = name
