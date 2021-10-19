@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Guitar Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ guitar.name }}</span>
+        <p>Color: {{ guitar.color }}</p>
+        <p>Make: {{ guitar.make }}</p>
+        <p>Type: {{ guitar.type }}</p>
+        {% if guitar.age > 0 %}
+            <p>Owned for: {{ guitar.age }} years</p>
+        {% else %}
+            <p>I just got it!</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
