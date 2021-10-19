@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Cat List</h1>
+<h1>Guitar List</h1>
 
-{% for cat in cats %}
+{% for guitar in guitars %}
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ cat.name }}</span>
-      <p>Breed: {{ cat.breed }}</p>
-      <p>Description: {{ cat.description }}</p>
-      {% if cat.age > 0 %}
-        <p>Age: {{ cat.age }}</p>
+      <span class="card-title">{{ guitar.name }}</span>
+      <p>Color: {{ guitar.color }}</p>
+      <p>Make: {{ guitar.make }}</p>
+      <p>Type: {{ guitar.type }}</p>
+      {% if guitar.age > 0 %}
+        <p>Owned for: {{ guitar.age }} years</p>
       {% else %}
-        <p>Age: Kitten</p>
+        <p>I just got it!</p>
       {% endif %}
     </div>
   </div>

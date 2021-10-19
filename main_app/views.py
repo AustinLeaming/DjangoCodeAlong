@@ -5,15 +5,17 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 class Guitar:
-    def __init__(self, make, color, type):
+    def __init__(self, name, make, color, type, age):
+        self.name = name
         self.make = make
         self.color = color
         self.type = type
+        self.age = age
 
 guitars = [
-    Guitar('Unkown', 'Green', 'Telecaster'),
-    Guitar('Fender', 'Orange Sunburst', 'Fender'),
-    Guitar('Ibanez', 'Wood grain', 'Artcore')
+    Guitar('No name', 'Unknown', 'Green', 'Telecaster', '1'),
+    Guitar('Ophelia', 'Fender', 'Orange Sunburst', 'Fender', '12'),
+    Guitar('Artie', 'Ibanez', 'Wood grain', 'Artcore', '1')
 ]
 
 # Define the home view
