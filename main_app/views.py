@@ -13,9 +13,9 @@ class Guitar:
         self.age = age
 
 guitars = [
-    Guitar('No name', 'Unknown', 'Green', 'Telecaster', '1'),
-    Guitar('Ophelia', 'Fender', 'Orange Sunburst', 'Fender', '12'),
-    Guitar('Artie', 'Ibanez', 'Wood grain', 'Artcore', '1')
+    Guitar('No name', 'Unknown', 'Green', 'Telecaster', 1),
+    Guitar('Ophelia', 'Fender', 'Orange Sunburst', 'Stratocaster', 12),
+    Guitar('Artie', 'Ibanez', 'Wood grain', 'Artcore', 1)
 ]
 
 # Define the home view
