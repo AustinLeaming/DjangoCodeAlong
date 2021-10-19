@@ -1,12 +1,12 @@
 from django.http.request import HttpRequest
 from django.shortcuts import render
 
-# add the following import 
+# Add the following import
 from django.http import HttpResponse
 
-# Create your views here.
-
-
-# defined the home view 
+# Define the home view
 def home(request):
-    return HttpRequest('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+  return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+
+def about(request):
+    return HttpResponse('<h1>About the Guitar Collector</h1>')
