@@ -3,18 +3,39 @@
 
 <h1>Guitar Details</h1>
 
-<div class="card">
-    <div class="card-content">
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
         <span class="card-title">{{ guitar.name }}</span>
-        <p>Color: {{ guitar.color }}</p>
         <p>Make: {{ guitar.make }}</p>
-        <p>Type: {{ guitar.type }}</p>
+        <p>Color: {{ guitar.color }}</p>
         {% if guitar.age > 0 %}
-            <p>Owned for: {{ guitar.age }} years</p>
+          <p>Age: {{ guitar.age }}</p>
         {% else %}
-            <p>I just got it!</p>
+          <p>Age: I just got this one!</p>
         {% endif %}
+      </div>
+      <div class="card-action">
+        <a href="">Edit</a>
+        <a href="">Delete</a>
+      </div>
     </div>
+  </div>
+  <div class="col s6">
+    <table class="striped">
+      <thead>
+        <tr><th>Date</th><th>Tuning</th></tr>
+      </thead>
+      <tbody>
+        {% for tuning in guitar.tuning_set.all %}
+          <tr>
+            <td>{{tuning.date}}</td>
+            <td>{{tuning.get_tune_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
-
 {% endblock %}

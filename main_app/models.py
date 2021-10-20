@@ -20,7 +20,7 @@ class Guitar(models.Model):
         return self.name
         
 class Tuning(models.Model):
-    date = models.DateField()
+    date = models.DateField('tuning date')
     tune = models.CharField(
         max_length=1,
         choices=TUNINGS,
