@@ -1,6 +1,7 @@
 from django.db import models
 
 TUNINGS = (
+    ('S', 'Standard'),
     ('D', 'Drop D'),
     ('C', 'Drop C'),
     ('G', 'Open G'),
