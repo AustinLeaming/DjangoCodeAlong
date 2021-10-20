@@ -1,5 +1,11 @@
 from django.db import models
 
+TUNINGS = (
+    ('D', 'Drop D'),
+    ('C', 'Drop C'),
+    ('G', 'Open G'),
+)
+
 # Create your models here.
 class Guitar(models.Model):
     name = models.CharField(max_length=100)
@@ -13,4 +19,14 @@ class Guitar(models.Model):
         return self.name
         
 class Tuning(models.Model):
-    tune = models.CharField(max_length=1)
+    date = models.DateField()
+    tune = models.CharField(
+        max_length=1,
+        choices=TUNINGS,
+        default=TUNINGS[0][0]
+        )
+    guitar = models.ForeignKey(Guitar, on_delete=models.CASCADE)
+
+    def __str__(self):
+        # nice method for obtaining the friendly value of a Field.choice
+        return f"{self.get_tune_display()} on {self.date}"
