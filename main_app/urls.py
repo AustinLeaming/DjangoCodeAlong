@@ -7,5 +7,6 @@ urlpatterns = [
     path('guitars/', views.guitars_index, name='index'),
     path('guitars/<int:guitar_id>/', views.guitars_detail, name='detail'),
     path('guitars/create/', views.GuitarCreate.as_view(), name='guitars_create'),
-    
+    path('cats/<int:pk>/update/', views.GuitarUpdate.as_view(), name='guitars_update'),
+    path('cats/<int:pk>/delete/', views.GuitarDelete.as_view(), name='guitars_delete')
 ]
