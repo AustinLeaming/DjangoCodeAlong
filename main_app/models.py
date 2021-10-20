@@ -35,3 +35,7 @@ class Tuning(models.Model):
     def __str__(self):
         # nice method for obtaining the friendly value of a Field.choice
         return f"{self.get_tune_display()} on {self.date}"
+
+    # change the default sort order
+    class Meta:
+        ordering = ['-date']
