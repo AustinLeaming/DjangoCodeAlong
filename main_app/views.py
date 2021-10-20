@@ -1,8 +1,16 @@
 from django.http.request import HttpRequest
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Guitar
 from django.views.generic import ListView
+
+class GuitarUpdate(UpdateView):
+    model = Guitar
+    fields = ['name', 'age', 'color']
+
+class GuitarDelete(DeleteView):
+    model = Guitar
+    success_url = '/guitars/'
 
 class GuitarCreate(CreateView):
     model = Guitar
