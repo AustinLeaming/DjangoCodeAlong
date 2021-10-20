@@ -11,10 +11,6 @@ class Guitar(models.Model):
 
     def __str__(self):
         return self.name
-    # class Guitar:
-    #     def __init__(self, name, make, color, type, age):
-    #     self.name = name
-    #     self.make = make
-    #     self.color = color
-    #     self.type = type
-    #     self.age = age
+        
+class Tuning(models.Model):
+    tune = models.CharField(max_length=1)
