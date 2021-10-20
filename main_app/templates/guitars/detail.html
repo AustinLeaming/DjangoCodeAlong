@@ -8,8 +8,9 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ guitar.name }}</span>
-        <p>Make: {{ guitar.make }}</p>
         <p>Color: {{ guitar.color }}</p>
+        <p>Make: {{ guitar.make }}</p>
+        <p>Type: {{ guitar.type }}</p>
         {% if guitar.age > 0 %}
           <p>Age: {{ guitar.age }}</p>
         {% else %}
