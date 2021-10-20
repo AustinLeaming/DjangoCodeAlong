@@ -1,23 +1,15 @@
 from django.http.request import HttpRequest
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Guitar
+from django.views.generic import ListView
+
+class GuitarCreate(CreateView):
+    model = Guitar
+    fields = '__all__'
 
 # Add the following import
 from django.http import HttpResponse
-
-# class Guitar:
-#     def __init__(self, name, make, color, type, age):
-#         self.name = name
-#         self.make = make
-#         self.color = color
-#         self.type = type
-#         self.age = age
-
-# guitars = [
-#     Guitar('No name', 'Unknown', 'Green', 'Telecaster', 1),
-#     Guitar('Ophelia', 'Fender', 'Orange Sunburst', 'Stratocaster', 12),
-#     Guitar('Artie', 'Ibanez', 'Wood grain', 'Artcore', 1)
-# ]
 
 # Define the home view
 def home(request):
