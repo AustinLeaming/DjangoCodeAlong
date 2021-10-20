@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 TUNINGS = (
     ('S', 'Standard'),
@@ -18,6 +19,9 @@ class Guitar(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'guitar_id': self.id})
         
 class Tuning(models.Model):
     date = models.DateField('tuning date')
