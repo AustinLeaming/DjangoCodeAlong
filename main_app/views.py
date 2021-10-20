@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Guitar
 from django.views.generic import ListView
+from .forms import TuningForm
 
 class GuitarUpdate(UpdateView):
     model = Guitar
@@ -32,4 +33,5 @@ def guitars_index(request):
 
 def guitars_detail(request, guitar_id):
     guitar = Guitar.objects.get(id=guitar_id)
-    return render(request, 'guitars/detail.html', {'guitar': guitar})
+    tuning_form = TuningForm()
+    return render(request, 'guitars/detail.html', {'guitar': guitar, 'tuning_form': tuning_form})
