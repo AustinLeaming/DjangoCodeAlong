@@ -9,6 +9,17 @@ TUNINGS = (
     ('G', 'Open G'),
 )
 
+class Accessory(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('accessories_detail', kwargs={'pk': self.id})
+
+
 # Create your models here.
 class Guitar(models.Model):
     name = models.CharField(max_length=100)
