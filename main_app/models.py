@@ -27,6 +27,7 @@ class Guitar(models.Model):
     color = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     age = models.IntegerField()
+    accessories = models.ManyToManyField(Accessory)
 
     def tuned_for_today(self):
         return self.tuning_set.filter(date=date.today()).count() >= 1
