@@ -5,10 +5,6 @@ from .models import Guitar, Accessory
 from django.views.generic import ListView, DetailView
 from .forms import TuningForm
 
-def assoc_accessory(request, guitar_id, accessory_id):
-    Guitar.objects.get(id=guitar_id).accessories.add(accessory_id)
-    return redirect('detail', guitar_id=guitar_id)
-
 class GuitarUpdate(UpdateView):
     model = Guitar
     fields = ['name', 'age', 'color']
@@ -50,6 +46,10 @@ def add_tuning(request, guitar_id):
         new_tuning = form.save(commit=False)
         new_tuning.guitar_id = guitar_id
         new_tuning.save()
+    return redirect('detail', guitar_id=guitar_id)
+
+def assoc_accessory(request, guitar_id, accessory_id):
+    Guitar.objects.get(id=guitar_id).accessories.add(accessory_id)
     return redirect('detail', guitar_id=guitar_id)
 
 class AccessoryList(ListView):
