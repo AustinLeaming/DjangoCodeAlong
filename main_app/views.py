@@ -1,8 +1,8 @@
 from django.http.request import HttpRequest
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Guitar
-from django.views.generic import ListView
+from .models import Guitar, Accessory
+from django.views.generic import ListView, DetailView
 from .forms import TuningForm
 
 class GuitarUpdate(UpdateView):
@@ -46,3 +46,21 @@ def add_tuning(request, guitar_id):
         new_tuning.guitar_id = guitar_id
         new_tuning.save()
     return redirect('detail', guitar_id=guitar_id)
+
+class AccessoryList(ListView):
+      model = Accessory
+
+class AccessoryDetail(DetailView):
+  model = Accessory
+
+class AccessoryCreate(CreateView):
+  model = Accessory
+  fields = '__all__'
+
+class AccessoryUpdate(UpdateView):
+  model = Accessory
+  fields = ['name', 'description']
+
+class AccessoryDelete(DeleteView):
+  model = Accessory
+  success_url = '/accessories/'
