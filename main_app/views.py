@@ -34,7 +34,7 @@ def guitars_index(request):
 def guitars_detail(request, guitar_id):
     guitar = Guitar.objects.get(id=guitar_id)
     tuning_form = TuningForm()
-    accessories_guitar_doesnt_have = Accessory.objects.exclude(id__in = guitar.toys.all().values_list('id'))
+    accessories_guitar_doesnt_have = Accessory.objects.exclude(id__in = guitar.accessories.all().values_list('id'))
     return render(request, 'guitars/detail.html', {'guitar': guitar, 'tuning_form': tuning_form, 'accessories': accessories_guitar_doesnt_have})
 
 def add_tuning(request, guitar_id):

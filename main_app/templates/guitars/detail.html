@@ -69,6 +69,29 @@
       {% endif %}
   </div>
   <!-- Future available toys area  -->
+  <div class="col s6">
+    <h3>Available Accessories</h3>
+    {% if accessories.count %}
+      {% for accessory in accessories.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span card="card-title"> A {{ accessory.name }} {{ accessory.description }}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="POST">
+              {% csrf_token %}
+              <button class="btn" type="submit">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{ guitar.name }} already has all available accessories</h5>
+    {% endif %}
+      
+  </div>
 </div>
 <script>
     const dateEl = document.getElementById('id_date');
