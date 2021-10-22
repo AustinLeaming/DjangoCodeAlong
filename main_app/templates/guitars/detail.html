@@ -60,7 +60,7 @@
         {% for accessory in guitar.accessories.all %}
           <div class="card">
             <div class="card-content">
-              <span card="card-title"> A {{ accessory.name }}</span>
+              <span card="card-title"> A {{ accessory.name }} {{ accessory.description }}</span>
             </div>
           </div>
         {% endfor %}
