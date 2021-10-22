@@ -5,6 +5,10 @@ from .models import Guitar, Accessory
 from django.views.generic import ListView, DetailView
 from .forms import TuningForm
 
+def assoc_accessory(request, guitar_id, accessory_id):
+    Guitar.objects.get(id=guitar_id).accessories.add(accessory_id)
+    return redirect('detail', guitar_id=guitar_id)
+
 class GuitarUpdate(UpdateView):
     model = Guitar
     fields = ['name', 'age', 'color']
@@ -22,7 +26,7 @@ from django.http import HttpResponse
 
 # Define the home view
 def home(request):
-  return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+  return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
